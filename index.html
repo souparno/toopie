@@ -61,7 +61,7 @@ have icons. Yes. Think about Fvwm (Linux) users like me -->
         xhr.open("POST", "https://api.imgur.com/3/image.json"); // Boooom!
         xhr.onload = function() {
             // Big win!
-            document.querySelector("#link").href = JSON.parse(xhr.responseText).data.link;
+            document.querySelector("#link").src = JSON.parse(xhr.responseText).data.link;
             document.body.className = "uploaded";
         }
         
@@ -89,7 +89,7 @@ have icons. Yes. Think about Fvwm (Linux) users like me -->
 </style>
 
 <p>Uploading...</p>
-<a id="link">It's online!!!</a>
+<img id="link"></img>
 
 <em>Look at the source code for more information. By <a href="http://twitter.com/paulrouget">@paulrouget</a>.</em>
 
