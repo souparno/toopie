@@ -74,7 +74,7 @@
         var xhr = new XMLHttpRequest(); // Create the XHR (Cross-Domain XHR FTW!!!) Thank you sooooo much imgur.com
         xhr.open("POST", "https://api.imgur.com/3/image.json"); // Boooom!
         xhr.onload = function() {
-          $("#main").append('<div class="nd2-card"><div class="card-media"><img src="'+JSON.parse(xhr.responseText).data.link+'"></div><div class="card-action"><div class="row between-xs"><div class="col-xs-12 align-right"><div class="box"><a href="#" class="ui-btn ui-btn-inline ui-btn-fab waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-favorite"></i></a><a href="#" class="ui-btn ui-btn-inline ui-btn-fab waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-bookmark"></i></a><a href="#" class="ui-btn ui-btn-inline ui-btn-fab waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-mail-reply zmd-flip-horizontal"></i></a></div></div></div></div></div>');
+          $("#main").prepend('<div class="nd2-card"><div class="card-media"><img src="'+JSON.parse(xhr.responseText).data.link+'"></div><div class="card-action"><div class="row between-xs"><div class="col-xs-12 align-right"><div class="box"><a href="#" class="ui-btn ui-btn-inline ui-btn-fab waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-favorite"></i></a><a href="#" class="ui-btn ui-btn-inline ui-btn-fab waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-bookmark"></i></a><a href="#" class="ui-btn ui-btn-inline ui-btn-fab waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-mail-reply zmd-flip-horizontal"></i></a></div></div></div></div></div>');
         }
         
         xhr.setRequestHeader('Authorization', 'Client-ID 28aaa2e823b03b1');
