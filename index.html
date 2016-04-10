@@ -77,13 +77,34 @@
         var xhr = new XMLHttpRequest(); // Create the XHR (Cross-Domain XHR FTW!!!) Thank you sooooo much imgur.com
         xhr.open("POST", "https://api.imgur.com/3/image.json"); // Boooom!
         xhr.onload = function() {
-          $("#main").prepend('<div class="nd2-card"><div class="card-media"><img src="'+JSON.parse(xhr.responseText).data.link+'"></div><div class="card-action"><div class="row between-xs"><div class="col-xs-12 align-right"><div class="box"><a href="#" class="ui-btn ui-btn-inline ui-btn-fab waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-favorite"></i></a><a href="#" class="ui-btn ui-btn-inline ui-btn-fab waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-bookmark"></i></a><a href="#" class="ui-btn ui-btn-inline ui-btn-fab waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-mail-reply zmd-flip-horizontal"></i></a></div></div></div></div></div>');
-        }
+
+  function showPos(position) {
+    var latitude = position.coords.latitude;
+    var longitude = position.coords.longitude;
+    var imageurl = JSON.parse(xhr.responseText).data.link;
+
+$.ajax({
+  url:"https://script.google.com/macros/s/AKfycbz3TxgkVDe0-3O3X3dlchPd4pUwk_Tr2TMr4bNda4y4cwPwnfE/exec",
+  data:{"latitude":latitude,"longitude":longitude,"imageurl":imageurl},
+  type:"POST",
+  success: function (data) {
+  
+    $("#main").prepend('<div class="nd2-card"><div class="card-media"><img src="'+imageurl+'"></div><div class="card-action"><div class="row between-xs"><div class="col-xs-12 align-right"><div class="box"><a href="#" class="ui-btn ui-btn-inline ui-btn-fab waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-favorite"></i></a><a href="#" class="ui-btn ui-btn-inline ui-btn-fab waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-bookmark"></i></a><a href="#" class="ui-btn ui-btn-inline ui-btn-fab waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-mail-reply zmd-flip-horizontal"></i></a></div></div></div></div></div>');  },
+  error: function () {
+    alert('fail');
+  }
+});
+
+  }
+          navigator.geolocation.getCurrentPosition(showPosition); 
+                  }
         
         xhr.setRequestHeader('Authorization', 'Client-ID 28aaa2e823b03b1');
         xhr.send(fd);
 
     }
+
+
 </script>
 	</body>
 </html>
