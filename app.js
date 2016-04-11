@@ -37,14 +37,12 @@ function upload(file) {
           alert('fail');
         }
       });
-
     }
     navigator.geolocation.getCurrentPosition(showPos);
   }
 
   xhr.setRequestHeader('Authorization', imgur_client_id);
   xhr.send(fd);
-
 }
 
 function search(e) {
@@ -56,13 +54,16 @@ function search(e) {
     type: "POST",
     success: function(data) {
       function showPos(position) {
-        var coords = {
-          'latitude': position.coords.latitude,
-          'longitude': position.coords.longitude
-        }
+        var coords1 = {
+            'latitude': position.coords.latitude,
+            'longitude': position.coords.longitude
+          },
+          datas = data.values;
 
-        for (var d in data.values) {
-          if (haversineDistance(coords, d) <= 1) {
+        for (var d in datas) {
+          var coords2 = datas[d];
+
+          if (haversineDistance(coords1, coords2) <= 1) {
             $("#main").prepend('<div class="nd2-card"><div class="card-media"><img src="' + d.imageurl + '"></div><div class="card-action"><div class="row between-xs"><div class="col-xs-12 align-right"><div class="box"><a href="#" class="ui-btn ui-btn-inline ui-btn-fab waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-favorite"></i></a><a href="#" class="ui-btn ui-btn-inline ui-btn-fab waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-bookmark"></i></a><a href="#" class="ui-btn ui-btn-inline ui-btn-fab waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-mail-reply zmd-flip-horizontal"></i></a></div></div></div></div></div>');
           }
         }
