@@ -1,6 +1,9 @@
 var web_service_url = "https://script.google.com/macros/s/AKfycbz3TxgkVDe0-3O3X3dlchPd4pUwk_Tr2TMr4bNda4y4cwPwnfE/exec";
 var imgur_client_id = "Client-ID 007f8b3ffbbbdfd";
 
+$('#search').on(click, search);
+
+
 function upload(file) {
 
   /* Is the file an image? */
@@ -44,7 +47,7 @@ function upload(file) {
 
 }
 
-function search() {
+function search(e) {
   $.ajax({
     url: web_service_url,
     data: {
