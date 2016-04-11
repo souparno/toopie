@@ -59,7 +59,7 @@ function search(e) {
             'longitude': position.coords.longitude
           };
 
-        for (var d in data.length) {
+        for (var d in data.values) {
           //var data = datas[i];
           var coords2 = {
             'latitude': d[1],
