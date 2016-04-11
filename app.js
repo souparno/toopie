@@ -60,11 +60,15 @@ function search(e) {
           },
           datas = data.values;
 
-        for (var d in datas) {
-          var coords2 = datas[d];
+        for (var i = 0; i < datas.length; i++) {
+          var data = datas[i];
+          var coords2 = {
+            latitude: data[1],
+            longitude = data[2]
+          };
 
           if (haversineDistance(coords1, coords2) <= 1) {
-            $("#main").prepend('<div class="nd2-card"><div class="card-media"><img src="' + d.imageurl + '"></div><div class="card-action"><div class="row between-xs"><div class="col-xs-12 align-right"><div class="box"><a href="#" class="ui-btn ui-btn-inline ui-btn-fab waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-favorite"></i></a><a href="#" class="ui-btn ui-btn-inline ui-btn-fab waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-bookmark"></i></a><a href="#" class="ui-btn ui-btn-inline ui-btn-fab waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-mail-reply zmd-flip-horizontal"></i></a></div></div></div></div></div>');
+            $("#main").prepend('<div class="nd2-card"><div class="card-media"><img src="' + data[3] + '"></div><div class="card-action"><div class="row between-xs"><div class="col-xs-12 align-right"><div class="box"><a href="#" class="ui-btn ui-btn-inline ui-btn-fab waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-favorite"></i></a><a href="#" class="ui-btn ui-btn-inline ui-btn-fab waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-bookmark"></i></a><a href="#" class="ui-btn ui-btn-inline ui-btn-fab waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-mail-reply zmd-flip-horizontal"></i></a></div></div></div></div></div>');
           }
         }
       }
