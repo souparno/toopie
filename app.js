@@ -55,7 +55,7 @@ function search(e) {
     },
     type: "POST",
     success: function(data) {
-      function showPos(position) {
+      /*function showPos(position) {
         var coords = {
           'latitude': position.coords.latitude,
           'longitude': position.coords.longitude
@@ -67,10 +67,12 @@ function search(e) {
           }
         }
       }
-      navigator.geolocation.getCurrentPosition(showPos);
+      navigator.geolocation.getCurrentPosition(showPos);*/
+
+      alert(data.result);
     },
     error: function() {
-      alert('fail');
+      		alert('fail');
     }
   });
 }
