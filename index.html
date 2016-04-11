@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>nativeDroid II - jQueryMobile Template</title>
+		<title>toopie</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
 		<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" />
@@ -42,7 +42,7 @@
 				<div class="row center-xs">
                                         <div class="col-xs-6">
 						<div class="box">
-						<a href="#" class="ui-btn ui-mini nd2-btn-icon-block">search</a>						
+						<a href="#" onclick="search()" class="ui-btn ui-mini nd2-btn-icon-block">search</a>						
                                          </div>
 				 </div>
                                         <div class="col-xs-6">
@@ -63,48 +63,6 @@
 		<script src="vendor/waves/waves.min.js"></script>
 		<script src="js/nativedroid2.js"></script>
 		<script src="nd2settings.js"></script>
-<script>
-
-
-    function upload(file) {
-
-        /* Is the file an image? */
-        if (!file || !file.type.match(/image.*/)) return;
-
-        /* Lets build a FormData object*/
-        var fd = new FormData(); // I wrote about it: https://hacks.mozilla.org/2011/01/how-to-develop-a-html5-image-uploader/
-        fd.append("image", file); // Append the file
-        var xhr = new XMLHttpRequest(); // Create the XHR (Cross-Domain XHR FTW!!!) Thank you sooooo much imgur.com
-        xhr.open("POST", "https://api.imgur.com/3/image.json"); // Boooom!
-        xhr.onload = function() {
-
-  function showPos(position) {
-    var latitude = position.coords.latitude;
-    var longitude = position.coords.longitude;
-    var imageurl = JSON.parse(xhr.responseText).data.link;
-
-$.ajax({
-  url:"https://script.google.com/macros/s/AKfycbz3TxgkVDe0-3O3X3dlchPd4pUwk_Tr2TMr4bNda4y4cwPwnfE/exec",
-  data:{"latitude":latitude,"longitude":longitude,"imageurl":imageurl},
-  type:"POST",
-  success: function (data) {
-  
-    $("#main").prepend('<div class="nd2-card"><div class="card-media"><img src="'+imageurl+'"></div><div class="card-action"><div class="row between-xs"><div class="col-xs-12 align-right"><div class="box"><a href="#" class="ui-btn ui-btn-inline ui-btn-fab waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-favorite"></i></a><a href="#" class="ui-btn ui-btn-inline ui-btn-fab waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-bookmark"></i></a><a href="#" class="ui-btn ui-btn-inline ui-btn-fab waves-effect waves-button waves-effect waves-button"><i class="zmdi zmdi-mail-reply zmd-flip-horizontal"></i></a></div></div></div></div></div>');  },
-  error: function () {
-    alert('fail');
-  }
-});
-
-  }
-          navigator.geolocation.getCurrentPosition(showPos); 
-                  }
-        
-        xhr.setRequestHeader('Authorization', 'Client-ID 28aaa2e823b03b1');
-        xhr.send(fd);
-
-    }
-
-
-</script>
+                <script src="app.js"></script>
 	</body>
 </html>
