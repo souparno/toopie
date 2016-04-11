@@ -1,4 +1,4 @@
-var web_service_url = "https://script.google.com/macros/s/AKfycbz3TxgkVDe0-3O3X3dlchPd4pUwk_Tr2TMr4bNda4y4cwPwnfE/exec";
+var web_service_url = "https://script.google.com/macros/s/AKfycbxF8sE4C-uG-PeVJx9yu8X-k47yTyD4YbPRMW6kLVmjx8ZgJHA/exec";
 var imgur_client_id = "Client-ID 007f8b3ffbbbdfd";
 
 $('#search').on('click', search);
