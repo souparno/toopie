@@ -31,6 +31,7 @@ function upload(file) {
         },
         type: "POST",
         success: function(data) {
+          $('#main').empty();
           search();
         },
         error: function() {
