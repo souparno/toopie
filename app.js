@@ -63,8 +63,8 @@ function search(e) {
         for (var i = 0; i < datas.length; i++) {
           var data = datas[i];
           var coords2 = {
-            latitude: data[1],
-            longitude = data[2]
+            'latitude': data[1],
+            'longitude': data[2]
           };
 
           if (haversineDistance(coords1, coords2) <= 1) {
